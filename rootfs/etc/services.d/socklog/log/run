@@ -4,15 +4,6 @@ s6-setuidgid nobody
 s6-log -b
 
 -
-+\local2.*
-/var/log/swift/proxy_access
-
--
-+\local2.*
-+\local0.*
-/var/log/swift/swift_all
-
--
 +^cron\.
 T
 /var/log/socklog/cron
@@ -21,6 +12,21 @@ T
 +^daemon\.
 T
 /var/log/socklog/daemon
+
+-
++^local2\.
+T
+/var/log/socklog/nginx-access
+
+-
++^local2\.
++\..err:
++\.error:
++\.emerg:
++\.alert:
++\.crit:
+T
+/var/log/socklog/nginx-error
 
 -
 +^\.debug:
