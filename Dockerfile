@@ -32,6 +32,6 @@ RUN					npm install aurelia-cli -g
 RUN					apk del clang linux-headers binutils-gold git python make g++ curl tar gzip && \
 						rm -rf /var/cache/apk/*
 
-ADD         rootfs /
+COPY         rootfs /
 
 ENTRYPOINT	["/init"]
