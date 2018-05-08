@@ -1,0 +1,26 @@
+{{ $proxies := getenv "PROXY" }}
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        # Everything is a 404
+        location / {
+                root html;
+                index index.html;
+        }
+
+        {{ if ne $proxies "" }}
+        {{ range $prox := split $proxies " " }}
+        {{ $redir := split $prox ","}}
+        location {{ index $redir 0 }}  {
+          proxy_pass {{ index $redir 1}};
+        }
+        {{ end }}
+        {{ end }}
+
+        # You may need this to prevent return 404 recursion.
+        location = /404.html {
+                internal;
+        }
+}
