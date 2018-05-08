@@ -17,9 +17,6 @@ server {
                 index index.html;
         }
 
-
-
-
         location /auth  {
           proxy_pass http://127.0.0.1:9000;
         }
@@ -28,8 +25,6 @@ server {
         location /api  {
           proxy_pass http://127.0.0.1:9000;
         }
-
-
 
         # You may need this to prevent return 404 recursion.
         location = /404.html {
@@ -49,8 +44,6 @@ server {
                 root html;
                 index index.html;
         }
-
-
 
         # You may need this to prevent return 404 recursion.
         location = /404.html {
