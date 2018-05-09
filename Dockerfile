@@ -9,8 +9,8 @@
 FROM				ehudkaldor/alpine-s6:latest
 MAINTAINER	Ehud Kaldor <ehud@unfairfunction.net>
 
-ENV					NODE_VERSION v10.0.0
-ENV					ARC linux-x64
+ARG					NODE_VERSION=v10.0.0
+ARG					ARC=linux-x64
 
 RUN 				apk add --update curl tar gzip git python make g++ clang linux-headers binutils-gold nginx xz
 
