@@ -15,6 +15,7 @@ T
 
 -
 +^local2\.
++\.*:
 T
 /var/log/socklog/nginx-access
 
